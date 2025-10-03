@@ -1,115 +1,21 @@
-#################################################################
-#Rutas de modulo de productos
-#Base controller: @controller('productos')
-
-################################################################
-
-
-
-
-
-
-#################################################################
-#Rutas de modulo de Pedidos
-#Base controller: @controller('pedidos')
-
-################################################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-#################################################################
-#Rutas de modulo de inventario
-#Base controller: @controller('inventario')
-
-################################################################
+#  Añadir stock al inventario
 POST http://localhost:3000/inventario
 Content-Type: application/json
-#id del producto
+
 {
-    "referencia": "0968klku082",
-    "items": 
-    [
-        {
-            "id": 90,
-            "precioUnidad": 45000,
-            "material": "Seda-fria",
-            "nombre": "Camiseta para dama estampada",
-            "cantidadReposicion": 80
-        }
+    "referencia": "CF-001",
+    "items": [
+        { "cantidadReposicion": 10 },
+        { "cantidadReposicion": 5 }
     ]
 }
 
-DELETE http://localhost:3000/inventario/24/123gfdhyt
-
-GET http://localhost:3000/inventario?size=10&id=1&referencia=aaq23462619
-
+# Consultar stock de un producto por el id
 GET http://localhost:3000/inventario/10
 
+# Actualizar la cantidad de stock de un producto
 PATCH http://localhost:3000/inventario/10/cantidad
 Content-Type: application/json
 {
-    "nuevaCantidad": 190
+    "nuevaCantidad": 100
 }
-
-PATCH http://localhost:3000/inventario/salida/10
-Content-Type: application/json
-
-{
-    "cantidadVendida" : 12
-}
-
-
-#################################################################
-#Rutas de modulo de devoluciones
-#Base controller: @controller('devoluciones')
-
-################################################################
-
-POST http://localhost:3000/devoluciones
-Content-Type: application/json
-
-POST http://localhost:3000/devoluciones/12/recepcion
-Content-Type: application/json
-
-#devoluciones/:id/recepcion = llegan los productos para revision
-
-{
-    "itemsRecibidos": [
-        {
-            "referencia": "P-23",
-            "cantidad": 1
-        },
-        {
-            "referencia": "C-15",
-            "cantidad":2
-        }
-    ]
-}
-
-
-
-GET http://localhost:3000/devoluciones/name/123?name=rosario&referencia=187abc
-
-
-GET http://localhost:3000/devoluciones/11
-
-
-PATCH http://localhost:3000/devoluciones/devolucion/P-23?statuShirt=01&codigoMotivo=002
-#01 = buenEstado
-#02 = malEstado
-#motivoBueno = [001, 002, 003]
-#motivoMalo = [004, 005, 006]
-#si se pone un id de buenEstado con un id de motivoMalo se generea error y lo mismo en viceverza 
-
-
-DELETE http://localhost:3000/devoluciones/14

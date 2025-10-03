@@ -20,8 +20,8 @@ export class InventarioController {
           mensaje:`Un Stock de ${stockActualizado} unidades de la referencia ${body.referencia} añadido y procesado.`,
           nuevoStockTotal: nuevoTotal,
           stockAnterior: stockBase,
-         //Información sobre la entrada y producto
-         detallesRecibidos:  body.items
+          //Información sobre la entrada y producto
+          detallesRecibidos:  body.items
       };
     }
 
@@ -77,15 +77,15 @@ export class InventarioController {
       const ajuste = nuevaCantidad - stockAnterior;
 
     return {
-        mensaje: `Stock de la variante Id ${idInventario} actualizado.`,
-        stockAnterior: stockAnterior,
-        stockActualizado: nuevoStock,
-        diferencia: (ajuste > 0) ? `Se añadieron ${ajuste} unidades` 
-        : `se retiraron ${Math.abs(ajuste)} unidades`
-        /**los dos puntos indican diferencia, si la diferencia es mayor a cero siginfica 
-         * que se añadieron productos pero si es menor a cero o no se cumple con la accion
-         * de añadir significa que se retiraron
-         */ 
+      mensaje: `Stock de la variante Id ${idInventario} actualizado.`,
+      stockAnterior: stockAnterior,
+      stockActualizado: nuevoStock,
+      diferencia: (ajuste > 0) ? `Se añadieron ${ajuste} unidades` 
+      : `se retiraron ${Math.abs(ajuste)} unidades`
+      /**los dos puntos indican diferencia, si la diferencia es mayor a cero siginfica 
+       * que se añadieron productos pero si es menor a cero o no se cumple con la accion
+       * de añadir significa que se retiraron
+       */ 
 
     };
   }

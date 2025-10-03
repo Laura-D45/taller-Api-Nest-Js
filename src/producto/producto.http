@@ -1,0 +1,13 @@
+POST http://localhost:3000/producto
+Content-Type: application/json
+# datos del body para el dto CrearProductoDto
+
+{
+    "nombre": "Camisa Polo",
+    "referencia": "CF-001",
+    "precio": 49.000,
+    "talla": "M",
+    "color": "Azul",
+    "material": "Algodón"
+}
+GET http://localhost:3000/producto?color=Azul

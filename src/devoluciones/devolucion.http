@@ -1,0 +1,10 @@
+### nueva solicitud de devolución
+POST http://localhost:3000/devoluciones
+Content-Type: application/json
+
+{
+    "items": ["187abc"]
+}
+
+### Ver detalle de devolución del pedido
+GET http://localhost:3000/devoluciones/5

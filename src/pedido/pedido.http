@@ -1,0 +1,14 @@
+POST http://localhost:3000/pedido
+Content-Type: application/json
+
+{
+    "producto": "CF-001",
+    "cantidad": 2,
+    "cliente": "Laura",
+    "direccion": "Cra 90 #45-67",
+    "precio": "49.000",
+    "talla": "M"
+}
+GET http://localhost:3000/pedido/1/camisa-polo
+PATCH http://localhost:3000/pedido/1
+DELETE http://localhost:3000/pedido/1

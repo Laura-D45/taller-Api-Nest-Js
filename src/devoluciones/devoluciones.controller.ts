@@ -80,7 +80,7 @@ export class DevolucionesController {
 
 
 //respuesta a solicitud
-     @Get('name/:id')
+    @Get('name/:id')
     creacionFactura(
         @Param('id', ParseIntPipe) id: number,
         @Query('referencia') referencia: string,
@@ -90,7 +90,7 @@ export class DevolucionesController {
         let mensajeDetalle: string;
 
         if(descuentoAplicado){
-             mensajeDetalle = `tenga en cuenta que a la hora de comprar la prenda esta tuvo descuento del ${descuentoAplicado}, por lo tanto se le regresa el dinero que usted pagó por la prenda`;
+            mensajeDetalle = `tenga en cuenta que a la hora de comprar la prenda esta tuvo descuento del ${descuentoAplicado}, por lo tanto se le regresa el dinero que usted pagó por la prenda`;
 
         }else {
             mensajeDetalle = `La prenda con referencia ${referencia} no tuvo ningún descuento al momento de la compra. Se le regresará el monto total pagado.`;
@@ -146,7 +146,7 @@ export class DevolucionesController {
             const devoluciontipo1 = this.motivoBueno[codigoMotivo];
 
             if(!codigoMotivo || !devoluciontipo1){
-                 throw new HttpException(
+                throw new HttpException(
                 'Devolución rechazada. Es obligatorio enviar el codigo del daño correspondiente (001, 002, 003),',
                     HttpStatus.BAD_REQUEST
                 );
@@ -164,7 +164,7 @@ export class DevolucionesController {
             
             //Buscar el motivo de devolucion y daño de la prenda
             const devolucionTipo2 = this.motivoMalo[codigoMotivo];
-             
+            
             if (!codigoMotivo || !devolucionTipo2){
                 // si el motivo de devolución es por daño y no se envia el código de motivo valido:
                 throw new HttpException(
